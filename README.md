@@ -1,35 +1,37 @@
-# Swadeshi Poster Creator
+# DevFest Bhopal 2025 - Poster Creator
 
-A modern, interactive web application for creating personalized awareness posters with custom photos and messages.
+A modern, interactive web application for creating personalized DevFest Bhopal 2025 posters with custom photos.
 
-![Swadeshi Poster Creator](https://via.placeholder.com/800x400?text=Swadeshi+Poster+Creator)
+![DevFest Bhopal 2025 Poster Creator](https://via.placeholder.com/800x400?text=DevFest+Bhopal+2025)
 
 ## Features
 
 🎨 **Custom Poster Generation**
-- Professional poster templates for awareness campaigns
+- Professional poster templates featuring Google technologies
 - Square or circular frame options for user photos
 - Real-time preview of the final poster
+- Two unique poster designs with tech elements
 
 📷 **Multiple Photo Input Methods**
 - Camera capture with live preview
 - File upload with photo editor
 - Drag, resize, and reposition uploaded images
 
-✏️ **Message Customization**
-- Customizable awareness messages
-- Multiple template options
-- Real-time preview on poster
+🚀 **Google Tech Elements**
+- Flutter, Firebase, Android, TensorFlow icons
+- Google Cloud, Chrome, Material Design symbols
+- Official Google brand colors throughout
 
 📱 **Mobile Responsive**
 - Optimized for all screen sizes
 - Touch-friendly interface
 - Progressive Web App ready
 
-🚀 **Sharing & Download**
+💾 **Sharing & Download**
 - High-quality PNG download
 - Native sharing API support
 - Social media optimized output
+- Pre-written captions for Instagram, LinkedIn, and Twitter
 
 ## Tech Stack
 
@@ -51,8 +53,8 @@ A modern, interactive web application for creating personalized awareness poster
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/swadeshi-poster-creator.git
-cd swadeshi-poster-creator
+git clone https://github.com/ethicaladitya/devfest-bhopal-2025-poster.git
+cd devfest-bhopal-2025-poster
 ```
 
 2. Install dependencies:
@@ -78,10 +80,10 @@ The built files will be in the `dist` directory, ready for deployment.
 ## Deployment Options
 
 ### Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/swadeshi-poster-creator)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ethicaladitya/devfest-bhopal-2025-poster)
 
 ### Netlify
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/your-username/swadeshi-poster-creator)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ethicaladitya/devfest-bhopal-2025-poster)
 
 ### Manual Deployment
 
@@ -104,8 +106,7 @@ src/
 │   ├── ui/             # Shadcn/ui components
 │   ├── CameraCapture.tsx
 │   ├── PhotoEditor.tsx
-│   ├── PosterPreview.tsx
-│   └── MessageEditor.tsx
+│   └── PosterPreview.tsx
 ├── hooks/              # Custom React hooks
 │   └── usePosterGenerator.ts
 ├── pages/              # Page components
@@ -115,9 +116,20 @@ src/
 └── assets/             # Static assets
 ```
 
-## Environment Setup
+## How to Use
 
-No environment variables required! The app works out of the box.
+1. **Choose Your Poster**: Select from two unique poster designs
+2. **Select Frame Shape**: Pick between circular or square frame
+3. **Add Your Photo**: Upload from your device or take a photo with your camera
+4. **Generate**: Download your personalized DevFest Bhopal 2025 poster
+5. **Share**: Use the provided captions to share on social media
+
+## Event Details
+
+- **Event**: DevFest Bhopal 2025
+- **Date**: 30 November 2025
+- **Organizer**: GDG Bhopal
+- **Website**: [devfest.bhopal.dev](https://devfest.bhopal.dev)
 
 ## Browser Support
 
@@ -142,16 +154,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
+- GDG Bhopal for organizing DevFest Bhopal 2025
 - React and Vite communities for excellent tooling
+- Google Developer Groups community
 
 ## Support
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/your-username/swadeshi-poster-creator/issues) page
+1. Check the [Issues](https://github.com/ethicaladitya/devfest-bhopal-2025-poster/issues) page
 2. Create a new issue with detailed information
 3. Contact the development team
 
 ---
 
-Made with ❤️ for the community by the swadeshi team
+Made with ❤️ for DevFest Bhopal 2025 by the GDG Bhopal community
