@@ -116,17 +116,17 @@ const Index = () => {
       // Convert to blob for sharing
       const response = await fetch(posterDataURL);
       const blob = await response.blob();
-      const file = new File([blob], "devfest-poster.png", { type: "image/png" });
+      const file = new File([blob], "wordcamp-poster.png", { type: "image/png" });
 
       // Share text
-      const shareText = "I'm attending DevFest Bhopal 2025! Join me at Central India's biggest developer festival! 🚀";
-      const websiteUrl = "https://devfest.bhopal.dev";
+      const shareText = "I'm attending WordCamp Bhopal 2025! Join me at Central India's biggest WordPress conference! 🚀";
+      const websiteUrl = "https://bhopal.wordcamp.org/2025";
 
       // Try Web Share API first - this is what apps like Paytm use for direct sharing
       if (navigator.share) {
         try {
           const shareData: any = {
-            title: "DevFest Bhopal 2025",
+            title: "WordCamp Bhopal 2025",
             text: `${shareText} ${websiteUrl}`,
           };
 
@@ -277,10 +277,10 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-xl font-bold font-display text-foreground">
-                  DevFest Bhopal 2025 🎉 - Poster Creator
+                  WordCamp Bhopal 2025 - Attendee Badge
                 </h1>
                 <p className="text-sm text-muted-foreground">
-                  Create your awesome poster and show the world you're attending! 🚀
+                  Create your badge and show the world you're attending! 🚀
                 </p>
               </div>
             </div>
@@ -434,7 +434,7 @@ const Index = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          navigator.clipboard.writeText("I'm attending DevFest Bhopal 2025! 🚀\n\nJoin me at Central India's biggest developer festival.\nLet's learn, network, and grow together!\n\n#DevFestBhopal #GDGBhopal #GoogleDevs #TechCommunity"); toast({
+                          navigator.clipboard.writeText("I'm attending WordCamp Bhopal 2025! 🚀\n\nJoin me at Central India's biggest WordPress conference.\nLet's learn, network, and grow together!\n\n#WCBhopal #WordCamp #WordPress"); toast({
                             title: "Copied!",
                             description: "Caption copied to clipboard",
                           });
@@ -446,7 +446,7 @@ const Index = () => {
                       </Button>
                     </div>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      I'm attending DevFest Bhopal 2025! 🚀 Join me at Central India's biggest developer festival. Let's learn, network, and grow together! #DevFestBhopal #GDGBhopal #GoogleDevs
+                      I'm attending WordCamp Bhopal 2025! 🚀 Join me at Central India's biggest WordPress conference. Let's learn, network, and grow together! #WCBhopal #WordCamp #WordPress
                     </p>
                   </div>
 
@@ -457,7 +457,7 @@ const Index = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          navigator.clipboard.writeText("Excited to be part of DevFest Bhopal 2025! 🌟\n\nCan't wait for the amazing sessions and networking. See you there!\n\n#DevFest #Bhopal #TechCommunity #GDG");
+                          navigator.clipboard.writeText("Excited to be part of WordCamp Bhopal 2025! 🌟\n\nCan't wait for the amazing sessions and networking. See you there!\n\n#WordCamp #Bhopal #WordPress #WCBhopal");
                           toast({
                             title: "Copied!",
                             description: "LinkedIn caption copied to clipboard",
@@ -470,7 +470,7 @@ const Index = () => {
                       </Button>
                     </div>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      Excited to be part of DevFest Bhopal 2025! 🌟 Can't wait for the amazing sessions and networking. See you there! #DevFest #Bhopal #TechCommunity
+                      Excited to be part of WordCamp Bhopal 2025! 🌟 Can't wait for the amazing sessions and networking. See you there! #WordCamp #Bhopal #WordPress #WCBhopal
                     </p>
                   </div>
 
@@ -481,7 +481,7 @@ const Index = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => {
-                          navigator.clipboard.writeText("Ready for DevFest Bhopal 2025? I am! 💻🤖\n\nCreate your badge and join the hype!\n\n#DevFest2025 #GDG #DevFestBhopal");
+                          navigator.clipboard.writeText("Ready for WordCamp Bhopal 2025? I am! 💻🌟\n\nCreate your badge and join the hype!\n\n#WordCamp2025 #WCBhopal #WordPress");
                           toast({
                             title: "Copied!",
                             description: "Twitter caption copied to clipboard",
@@ -494,7 +494,7 @@ const Index = () => {
                       </Button>
                     </div>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      Ready for DevFest Bhopal 2025? I am! 💻🤖 Create your badge and join the hype! #DevFest2025 #GDG
+                      Ready for WordCamp Bhopal 2025? I am! 🌟 Create your badge and join the hype! #WordCamp #WordPress #WCBhopal
                     </p>
                   </div>
                 </div>
@@ -527,7 +527,7 @@ const Index = () => {
                       <Button
                         onClick={() => {
                           const link = document.createElement("a");
-                          link.download = `DevFest-Poster-${Date.now()}.png`;
+                          link.download = `WordCamp-Bhopal-2025-${Date.now()}.png`;
                           link.href = generatedPosterForDisplay;
                           document.body.appendChild(link);
                           link.click();

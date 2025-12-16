@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Camera, Upload, Square, Circle, Hexagon, Diamond, Octagon } from "lucide-react";
 
 export type FrameType = "circle" | "squircle" | "hexagon" | "badge" | "diamond";
-export type PosterType = "poster1" | "poster2" | "poster3" | "poster4";
+export type PosterType = "poster1" | "poster2";
 
 interface PosterPreviewProps {
   userImage?: string;
@@ -26,10 +26,8 @@ export const PosterPreview = ({
   onUploadClick,
 }: PosterPreviewProps) => {
   const posterImages = {
-    poster1: "/uploads/devfest-poster1.png",
-    poster2: "/uploads/devfest-poster2.png",
-    poster3: "/uploads/devfest-poster3.png",
-    poster4: "/uploads/devfest-poster4.png"
+    poster1: "uploads/wordcamp-poster1.png",
+    poster2: "uploads/wordcamp-poster2.png"
   };
   return (
     <div className="flex flex-col items-center space-y-4 sm:space-y-6">
@@ -56,28 +54,6 @@ export const PosterPreview = ({
             <img
               src={posterImages.poster2}
               alt="Poster Option 2"
-              className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg border-2 border-muted"
-            />
-          </div>
-          <div
-            className={`relative cursor-pointer transition-all duration-200 ${posterType === "poster3" ? "ring-2 ring-primary scale-105" : "hover:scale-102"
-              }`}
-            onClick={() => onPosterTypeChange("poster3")}
-          >
-            <img
-              src={posterImages.poster3}
-              alt="Poster Option 3"
-              className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg border-2 border-muted"
-            />
-          </div>
-          <div
-            className={`relative cursor-pointer transition-all duration-200 ${posterType === "poster4" ? "ring-2 ring-primary scale-105" : "hover:scale-102"
-              }`}
-            onClick={() => onPosterTypeChange("poster4")}
-          >
-            <img
-              src={posterImages.poster4}
-              alt="Poster Option 4"
               className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg border-2 border-muted"
             />
           </div>

@@ -1,8 +1,8 @@
-# DevFest Bhopal 2025 - Poster Creator
+# WordCamp Bhopal 2025 - Poster Creator
 
-A modern, interactive web application for creating personalized DevFest Bhopal 2025 posters with custom photos.
+A modern, interactive web application for creating personalized WordCamp Bhopal 2025 posters with custom photos.
 
-![DevFest Bhopal 2025 Poster Creator](https://via.placeholder.com/800x400?text=DevFest+Bhopal+2025)
+![WordCamp Bhopal 2025 Poster Creator](https://via.placeholder.com/800x400?text=WordCamp+Bhopal+2025)
 
 ## Features
 
@@ -53,8 +53,8 @@ A modern, interactive web application for creating personalized DevFest Bhopal 2
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ethicaladitya/devfest-bhopal-2025-poster.git
-cd devfest-bhopal-2025-poster
+git clone https://github.com/ethicaladitya/wcbhopal-poster-maker.git
+cd wcbhopal-poster-maker
 ```
 
 2. Install dependencies:
@@ -80,10 +80,10 @@ The built files will be in the `dist` directory, ready for deployment.
 ## Deployment Options
 
 ### Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ethicaladitya/devfest-bhopal-2025-poster)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ethicaladitya/wcbhopal-poster-maker)
 
 ### Netlify
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ethicaladitya/devfest-bhopal-2025-poster)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ethicaladitya/wcbhopal-poster-maker)
 
 ### Manual Deployment
 
@@ -121,15 +121,15 @@ src/
 1. **Choose Your Poster**: Select from two unique poster designs
 2. **Select Frame Shape**: Pick between circular or square frame
 3. **Add Your Photo**: Upload from your device or take a photo with your camera
-4. **Generate**: Download your personalized DevFest Bhopal 2025 poster
+4. **Generate**: Download your personalized WordCamp Bhopal 2025 poster
 5. **Share**: Use the provided captions to share on social media
 
 ## Event Details
 
-- **Event**: DevFest Bhopal 2025
+- **Event**: WordCamp Bhopal 2025
 - **Date**: 30 November 2025
 - **Organizer**: GDG Bhopal
-- **Website**: [devfest.bhopal.dev](https://devfest.bhopal.dev)
+- **Website**: [bhopal.wordcamp.org](https://bhopal.wordcamp.org/2025)
 
 ## Browser Support
 
@@ -154,7 +154,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- GDG Bhopal for organizing DevFest Bhopal 2025
+- WordPress Bhopal Community for organizing WordCamp Bhopal 2025
 - React and Vite communities for excellent tooling
 - Google Developer Groups community
 
@@ -162,10 +162,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/ethicaladitya/devfest-bhopal-2025-poster/issues) page
+1. Check the [Issues](https://github.com/ethicaladitya/wcbhopal-poster-maker/issues) page
 2. Create a new issue with detailed information
 3. Contact the development team
 
 ---
 
-Made with ❤️ for DevFest Bhopal 2025 by the GDG Bhopal community
+Made with ❤️ for WordCamp Bhopal 2025 by the WordPress Bhopal community

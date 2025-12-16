@@ -5,10 +5,8 @@ export const usePosterGenerator = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const posterImages = {
-    poster1: "/uploads/devfest-poster1.png",
-    poster2: "/uploads/devfest-poster2.png",
-    poster3: "/uploads/devfest-poster3.png",
-    poster4: "/uploads/devfest-poster4.png"
+    poster1: "uploads/wordcamp-poster1.png",
+    poster2: "uploads/wordcamp-poster2.png"
   };
 
   const generatePoster = async (
@@ -77,25 +75,25 @@ export const usePosterGenerator = () => {
           ctx.strokeText(topText, posterWidth / 2, topY);
           ctx.fillText(topText, posterWidth / 2, topY);
 
-          // "DEVFEST BHOPAL 2025" text - larger and colorful
+          // "WORDCAMP BHOPAL 2025" text - larger and colorful
           ctx.font = "bold 88px Arial, sans-serif";
 
-          // Create gradient for DevFest text using Google colors
+          // Create gradient for WordCamp text using WordPress colors
           const gradient = ctx.createLinearGradient(0, topY + 120, posterWidth, topY + 120);
-          gradient.addColorStop(0, "#4285F4");    // Google Blue
-          gradient.addColorStop(0.33, "#EA4335"); // Google Red
-          gradient.addColorStop(0.66, "#FBBC04"); // Google Yellow
-          gradient.addColorStop(1, "#34A853");    // Google Green
+          gradient.addColorStop(0, "#21759b");    // WordPress Blue
+          gradient.addColorStop(0.5, "#d54e21");  // WordPress Orange
+          gradient.addColorStop(1, "#21759b");    // WordPress Blue
 
           ctx.fillStyle = gradient;
-          ctx.strokeStyle = "#000000";
+          ctx.strokeStyle = "#FFFFFF";
           ctx.lineWidth = 5;
 
-          const mainText = "DEVFEST";
+          const mainText = "WORDCAMP";
           ctx.strokeText(mainText, posterWidth / 2, topY + 100);
           ctx.fillText(mainText, posterWidth / 2, topY + 100);
 
           ctx.font = "bold 74px Arial, sans-serif";
+          ctx.fillStyle = "#FFFFFF";
           const subText = "BHOPAL 2025 🚀";
           ctx.strokeText(subText, posterWidth / 2, topY + 190);
           ctx.fillText(subText, posterWidth / 2, topY + 190);
@@ -106,7 +104,7 @@ export const usePosterGenerator = () => {
           ctx.strokeStyle = "#000000";
           ctx.lineWidth = 3;
 
-          const dateText = "📅 30 NOV 2025";
+          const dateText = "📅 08 FEB 2025";
           const bottomY = frameY + frameSize / 2 + 120;
           ctx.strokeText(dateText, posterWidth / 2, bottomY);
           ctx.fillText(dateText, posterWidth / 2, bottomY);
@@ -142,7 +140,7 @@ export const usePosterGenerator = () => {
       const posterDataURL = await generatePoster(userImage, frameType, customMessage, posterType);
 
       const link = document.createElement("a");
-      link.download = `DevFest-Poster-${Date.now()}.png`;
+      link.download = `WordCamp-Bhopal-2025-${Date.now()}.png`;
       link.href = posterDataURL;
       document.body.appendChild(link);
       link.click();
@@ -165,11 +163,11 @@ export const usePosterGenerator = () => {
       const posterDataURL = await generatePoster(userImage, frameType, customMessage, posterType);
       const response = await fetch(posterDataURL);
       const blob = await response.blob();
-      const file = new File([blob], "DevFest-Poster.png", { type: "image/png" });
+      const file = new File([blob], "WordCamp-Bhopal-2025.png", { type: "image/png" });
       if (navigator.share && navigator.canShare({ files: [file] })) {
         await navigator.share({
-          title: "My DevFest Bhopal Poster",
-          text: "Check out my custom DevFest poster!",
+          title: "WordCamp Bhopal 2025",
+          text: "Check out my WordCamp Bhopal 2025 poster!",
           files: [file]
         });
         return true;
