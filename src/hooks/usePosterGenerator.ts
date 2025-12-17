@@ -45,15 +45,29 @@ export const usePosterGenerator = () => {
 
           ctx.save();
 
-          // Always use circle frame
+          // Frame Clipping Path
           ctx.beginPath();
-          ctx.arc(
-            frameX + frameSize / 2,
-            frameY + frameSize / 2,
-            frameSize / 2,
-            0,
-            Math.PI * 2
-          );
+
+          if (frameType === "squircle") {
+            // Squircle / Rounded Square
+            const radius = 60; // Rounded corners
+            if (ctx.roundRect) {
+              ctx.roundRect(frameX, frameY, frameSize, frameSize, radius);
+            } else {
+              // Fallback for older browsers if needed (simple rect)
+              ctx.rect(frameX, frameY, frameSize, frameSize);
+            }
+          } else {
+            // Default Circle
+            ctx.arc(
+              frameX + frameSize / 2,
+              frameY + frameSize / 2,
+              frameSize / 2,
+              0,
+              Math.PI * 2
+            );
+          }
+
           ctx.clip();
 
           // Calculate scaling to fill the frame (object-fit: cover)

@@ -60,6 +60,31 @@ export const PosterPreview = ({
         </div>
       </div>
 
+      {/* Frame Style Selection */}
+      <div className="flex flex-col items-center space-y-3">
+        <span className="text-sm font-medium text-muted-foreground">Choose Frame Style:</span>
+        <div className="flex gap-4">
+          <Button
+            variant={frameType === "circle" ? "default" : "outline"}
+            onClick={() => onFrameTypeChange("circle")}
+            className="flex flex-col h-auto py-2 px-4 gap-1"
+            size="sm"
+          >
+            <Circle className="w-5 h-5" />
+            <span className="text-xs">Circle</span>
+          </Button>
+          <Button
+            variant={frameType === "squircle" ? "default" : "outline"}
+            onClick={() => onFrameTypeChange("squircle")}
+            className="flex flex-col h-auto py-2 px-4 gap-1"
+            size="sm"
+          >
+            <Square className="w-5 h-5" />
+            <span className="text-xs">Square</span>
+          </Button>
+        </div>
+      </div>
+
       {/* Poster Preview */}
       <Card className="relative overflow-hidden border-2 border-dashed border-muted-foreground/20 hover:border-primary/50 transition-smooth">
         <div className="relative w-72 h-128 sm:w-80 sm:h-144 bg-gradient-to-br from-primary-light to-accent" style={{ aspectRatio: '9/16' }}>
