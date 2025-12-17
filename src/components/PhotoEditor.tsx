@@ -16,23 +16,23 @@ export const PhotoEditor = ({ imageFile, onConfirm, onDiscard }: PhotoEditorProp
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [imageUrl, setImageUrl] = useState<string>("");
-  
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const url = URL.createObjectURL(imageFile);
     setImageUrl(url);
-    
+
     return () => URL.revokeObjectURL(url);
   }, [imageFile]);
 
   const drawImage = useCallback(() => {
     const canvas = canvasRef.current;
     const image = imageRef.current;
-    
+
     if (!canvas || !image) return;
-    
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -42,28 +42,28 @@ export const PhotoEditor = ({ imageFile, onConfirm, onDiscard }: PhotoEditorProp
 
     // Clear canvas
     ctx.clearRect(0, 0, canvasSize, canvasSize);
-    
+
     // Calculate image dimensions
     const imageAspect = image.naturalWidth / image.naturalHeight;
     let drawWidth = canvasSize * scale;
     let drawHeight = canvasSize * scale;
-    
+
     if (imageAspect > 1) {
       drawHeight = drawWidth / imageAspect;
     } else {
       drawWidth = drawHeight * imageAspect;
     }
-    
+
     // Calculate position with bounds
     const maxX = (drawWidth - canvasSize) / 2;
     const maxY = (drawHeight - canvasSize) / 2;
-    
+
     const boundedX = Math.max(-maxX, Math.min(maxX, position.x));
     const boundedY = Math.max(-maxY, Math.min(maxY, position.y));
-    
+
     const drawX = (canvasSize - drawWidth) / 2 + boundedX;
     const drawY = (canvasSize - drawHeight) / 2 + boundedY;
-    
+
     // Draw image
     ctx.drawImage(image, drawX, drawY, drawWidth, drawHeight);
   }, [scale, position]);
@@ -81,7 +81,7 @@ export const PhotoEditor = ({ imageFile, onConfirm, onDiscard }: PhotoEditorProp
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
-    
+
     const newX = e.clientX - dragStart.x;
     const newY = e.clientY - dragStart.y;
     setPosition({ x: newX, y: newY });
@@ -99,9 +99,43 @@ export const PhotoEditor = ({ imageFile, onConfirm, onDiscard }: PhotoEditorProp
   const handleConfirm = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const imageData = canvas.toDataURL("image/jpeg", 0.8);
     onConfirm(imageData);
+  };
+
+  const handleImageLoad = () => {
+    const image = imageRef.current;
+    if (!image) return;
+
+    // Calculate aspect ratios
+    const imageAspect = image.naturalWidth / image.naturalHeight;
+    // Canvas is square (1:1)
+
+    // Calculate scale to cover (object-fit: cover equivalent)
+    let coverScale;
+    if (imageAspect > 1) {
+      // Image is wider - scale by height so that height fits exactly (scale=1 relative to canvas width?)
+      // Actually, our draw logic:
+      // if aspect > 1: drawHeight = (canvasSize * scale) / aspect.
+      // We want drawHeight >= canvasSize
+      // (canvasSize * scale) / aspect >= canvasSize
+      // scale / aspect >= 1  => scale >= aspect
+      coverScale = imageAspect;
+    } else {
+      // Image is taller - scale by width
+      // drawWidth = (canvasSize * scale) * aspect (wait, checking logic again)
+      // Line 54: drawWidth = drawHeight * imageAspect
+      // ... drawHeight = canvasSize * scale
+      // so drawWidth = (canvasSize * scale) * aspect
+      // We want drawWidth >= canvasSize
+      // scale * aspect >= 1 => scale >= 1 / aspect
+      coverScale = 1 / imageAspect;
+    }
+
+    setScale(coverScale);
+    // Explicitly call drawImage to ensure it renders with new scale immediately
+    // although useEffect will likely catch it, explicit is safer for initial state
   };
 
   return (
@@ -132,7 +166,7 @@ export const PhotoEditor = ({ imageFile, onConfirm, onDiscard }: PhotoEditorProp
                 src={imageUrl}
                 alt="Preview"
                 className="hidden"
-                onLoad={drawImage}
+                onLoad={handleImageLoad}
               />
             </div>
           </div>
@@ -152,7 +186,7 @@ export const PhotoEditor = ({ imageFile, onConfirm, onDiscard }: PhotoEditorProp
                 value={[scale]}
                 onValueChange={(value) => setScale(value[0])}
                 min={0.5}
-                max={3}
+                max={5}
                 step={0.1}
                 className="w-full"
               />

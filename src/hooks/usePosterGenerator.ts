@@ -56,7 +56,27 @@ export const usePosterGenerator = () => {
           );
           ctx.clip();
 
-          ctx.drawImage(userImg, frameX, frameY, frameSize, frameSize);
+          // Calculate scaling to fill the frame (object-fit: cover)
+          const imgAspect = userImg.width / userImg.height;
+          const frameAspect = 1; // Square frame area
+
+          let renderWidth, renderHeight, offsetX, offsetY;
+
+          if (imgAspect > frameAspect) {
+            // Image is wider than frame - fit height
+            renderHeight = frameSize;
+            renderWidth = frameSize * imgAspect;
+            offsetX = frameX - (renderWidth - frameSize) / 2;
+            offsetY = frameY;
+          } else {
+            // Image is taller than frame - fit width
+            renderWidth = frameSize;
+            renderHeight = frameSize / imgAspect;
+            offsetX = frameX;
+            offsetY = frameY - (renderHeight - frameSize) / 2;
+          }
+
+          ctx.drawImage(userImg, offsetX, offsetY, renderWidth, renderHeight);
           ctx.restore();
 
           ctx.restore();
